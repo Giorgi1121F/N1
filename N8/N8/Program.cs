@@ -19,14 +19,15 @@ namespace N8
     class Program
     {
         static void Main(string[] args)
-        {   
+        {   // რსს გამოყენება xml  ის მისაღებად
             string url = " http://www.nbg.ge/rss.php";
             XmlReader reader = XmlReader.Create(url);
             SyndicationFeed feed = SyndicationFeed.Load(reader);
             reader.Close();
+            //xml ით მანიპულირება
             foreach (SyndicationItem item in feed.Items)
             {
-               
+               //ვალუტის  არჩევა
                 String summary = item.Summary.Text;
 
                 Console.WriteLine(" Choose your currency N1 ");
@@ -45,17 +46,17 @@ namespace N8
                 string[] separator1 = new string[]{"<td>"};
                 strArrayOne = str1.Split(separator1,StringSplitOptions.None);
 
-
+                // ფილრაცია 
                 for (int i = 0; i < strArrayOne.Length; i++)
                 {
                     strArrayOne[i] = strArrayOne[i].Replace("</td>", "");  
                     strArrayOne[i] = strArrayOne[i].Replace("\n", "");
                     strArrayOne[i] = strArrayOne[i].Replace("\t", "");
                     strArrayOne[i] = strArrayOne[i].Replace(" ", string.Empty);
-                    //Console.WriteLine(strArrayOne[i] +"---" +i) testirebistvis;
+                    //Console.WriteLine(strArrayOne[i] +"---" +i) testi;
 
                       }
-                
+                //შედარება და პასუხის გამოტანა
                   for  (int i = 0; i < strArrayOne.Length; i++)
                    {
                    

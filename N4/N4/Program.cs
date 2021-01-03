@@ -28,7 +28,7 @@ namespace N4
             {
                 b[i] = a[i];
             }
-
+            //სიმბოლოების დათვლა განაწილება
             for (int i = 0; i < b.Length; i++)
             {
                 if (b[i] == m) num1++;
@@ -36,6 +36,7 @@ namespace N4
                 else continue;
 
             }
+            //შედარება
             if (num2 - num1 == 0)
             {
                 Console.WriteLine("gamosaxuleba sworia");
